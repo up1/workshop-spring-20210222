@@ -10,8 +10,15 @@ import java.util.Vector;
 public class UserController {
 
     @GetMapping("/users/{id}")
-    public UserResponse getById(@PathVariable int id) {
-        UserResponse userResponse = new UserResponse(id, "somkiat", 40);
+    public UserResponse getById(@PathVariable String id) {
+        int _id = -1;
+        try {
+            _id = Integer.parseInt(id);
+        } catch (Exception e) {
+            throw new UserInputInvalidException("Invalid id with " + id);
+        }
+
+        UserResponse userResponse = new UserResponse(_id, "somkiat", 40);
         return userResponse;
     }
 
