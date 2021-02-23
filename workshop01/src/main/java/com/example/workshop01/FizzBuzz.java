@@ -4,15 +4,22 @@ package com.example.workshop01;
 public class FizzBuzz {
 
     public String say(int number) {
-        if(หารสามลงตัวไหม(number) && number % 5 == 0){
-            return "FizzBuzz";
+        // Register all rules
+        Rule[] rules = new Rule[]{
+                new FizzBuzzRule(),
+                new BuzzRule(),
+                new FizzRule(),
+                new WowRule()
+        };
+
+        // Main process
+        for (Rule rule : rules) {
+            if(rule.check(number)){
+                return rule.say();
+            }
         }
-        if(number % 5 == 0) {
-            return "Buzz";
-        }
-        if(หารสามลงตัวไหม(number)) {
-            return "Fizz";
-        }
+
+        // Default rule
         return "" + number;
     }
 

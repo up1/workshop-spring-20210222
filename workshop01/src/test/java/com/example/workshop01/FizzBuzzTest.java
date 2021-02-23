@@ -30,10 +30,10 @@ public class FizzBuzzTest {
     }
 
     @Test
-    @DisplayName("นับ 4 ได้ 4")
+    @DisplayName("นับ 4 ได้ Wow")
     public void case_4() {
         String actualResult = fizzBuzz.say(4);
-        assertEquals("4", actualResult);
+        assertEquals("Wow", actualResult);
     }
 
     @Test
