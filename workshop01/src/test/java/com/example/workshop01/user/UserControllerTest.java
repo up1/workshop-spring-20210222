@@ -28,6 +28,14 @@ public class UserControllerTest {
     }
 
     @Test
+    public void user_not_found() {
+        ErrorResponse result
+                = restTemplate.getForObject("/users/0", ErrorResponse.class);
+        assertEquals(4567, result.getCode());
+        assertEquals("User not found with id=0", result.getMessage());
+    }
+
+    @Test
     public void failure_with_invalid_id() {
         ErrorResponse result
                 = restTemplate.getForObject("/users/abc", ErrorResponse.class);
