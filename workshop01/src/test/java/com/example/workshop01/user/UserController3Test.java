@@ -38,7 +38,8 @@ public class UserController3Test {
     @Test
     public void user_not_found_with_mock() {
         // Prepare data
-
+        when(userService.findById(0))
+                .thenThrow(new UserNotFoundException("User not found with id=0"));
         // Testing
         ErrorResponse result
                 = restTemplate.getForObject("/users/0", ErrorResponse.class);
