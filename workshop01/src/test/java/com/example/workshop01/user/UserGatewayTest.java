@@ -19,7 +19,7 @@ public class UserGatewayTest {
         Optional<UserResponse> result = userGateway.getUserById(1);
         assertTrue(result.isPresent());
         assertEquals(1, result.get().getId());
-        assertEquals("Leanne Graham", result.get().getName());
+        assertEquals("User from stubby", result.get().getName());
     }
 
 }
